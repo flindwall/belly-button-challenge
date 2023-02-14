@@ -43,8 +43,8 @@ function buildCharts(sample) {
      // Set up the layout
         var layout = {
         hovermode: "closest",
-        xaxis: {title: "OTU ID (Microbial Species Identification Number)"},
-        yaxis: {title: "Amount Present in Culture"}
+        xaxis: {title: "OTU ID "},
+        
   };
 
     // plot the bubble chart with plotly
@@ -113,27 +113,26 @@ function buildCharts(sample) {
       }
     ];
 
-        // Create the layout for the gauge chart.
+        // Create layout
         var gaugeLayout = {
         width: 500,
         height: 500,
-        // margin: { t: 25, r: 25, l: 25, b: 25 },
         font: { color: "darklavender", family: "Tahoma" }
     };
 
-        // Use Plotly to plot the gauge data and layout.
+        // plot using plotly
         Plotly.newPlot("gauge", gaugeData, gaugeLayout);
 });
 };
 
 
 
-// Create a function that initializes the dashboard 
+// Create a function to initialize dashboard
 function init() {
   // Grab a reference to the dropdown select element
   let selector = d3.select("#selDataset");
 
-  // Use the list of sample names to populate the select options
+  // use d3 to initialize select options
   d3.json(url).then((data) => {
     let sampleNames = data.names;
 
